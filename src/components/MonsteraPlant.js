@@ -11,7 +11,7 @@ const MonsteraPlant = () => {
     const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.5, 500);
     //const camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 0.2, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth/1.5, window.innerHeight/1.5);
+    renderer.setSize(window.innerWidth, window.innerHeight);
     //renderer.setSize(window.innerWidth - 200 , window.innerHeight - 200);
 
     renderer.setClearColor(0xf0f0f0);
@@ -45,7 +45,7 @@ const MonsteraPlant = () => {
 
     const loader = new GLTFLoader();
 
-    loader.load('/scene.gltf', function (gltf) {
+    loader.load('https://kayla-tran.github.io/scene.gltf', function (gltf) {
       const model = gltf.scene;
       model.scale.set(2, 2, 2); 
       scene.add(model);
@@ -65,7 +65,6 @@ const MonsteraPlant = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth-1000, window.innerHeight);
-      //renderer.setSize(window.innerWidth/5, window.innerHeight/5);
     };
     window.addEventListener('resize', handleResize);
 
@@ -75,11 +74,7 @@ const MonsteraPlant = () => {
     };
   }, []);
 
-  return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <div ref={mounting} />
-      </div>
-  );
+  return <div ref={mounting} />;
 };
 
 export default MonsteraPlant;
