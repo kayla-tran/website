@@ -45,7 +45,7 @@ const MonsteraPlant = () => {
 
     const loader = new GLTFLoader();
 
-    loader.load('https://kayla-tran.github.io/scene.gltf', function (gltf) {
+    loader.load('scene.gltf', function (gltf) {
       const model = gltf.scene;
       model.scale.set(2, 2, 2); 
       scene.add(model);
